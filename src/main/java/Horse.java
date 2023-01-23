@@ -1,4 +1,5 @@
 import static java.util.Objects.isNull;
+import static org.mockito.ArgumentMatchers.eq;
 
 public class Horse {
 

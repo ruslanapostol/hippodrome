@@ -1,6 +1,10 @@
+
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+@Slf4j
 public class Main {
 
     public static void main(String[] args) throws Exception {
@@ -14,8 +18,9 @@ public class Main {
                 new Horse("Вишня", 3)
         );
         Hippodrome hippodrome = new Hippodrome(horses);
+        log.error("Начало скачек. Количество участников: {}", horses.size());
 
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 4; i++) {
             hippodrome.move();
             watch(hippodrome);
             TimeUnit.MILLISECONDS.sleep(200);
