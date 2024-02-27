@@ -13,6 +13,7 @@ public class Horse {
         if (isNull(name)) {
             log.error("Name is null");
             throw new IllegalArgumentException("Name cannot be null.");
+
         } else if (name.isBlank()) {
             log.error("Name is blank");
             throw new IllegalArgumentException("Name cannot be blank.");
@@ -29,7 +30,7 @@ public class Horse {
         this.name = name;
         this.speed = speed;
         this.distance = distance;
-        log.debug("Создание Horse, имя {}, скорость {}", name, speed);
+        log.debug("Создание Horse, имя: {}, скорость: {}", name, speed);
     }
 
     public Horse(String name, double speed) {
