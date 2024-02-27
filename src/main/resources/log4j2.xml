@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="ERROR">
     <Appenders>
-        <RollingFile name="LogToFile" fileName="logs/hippodrome.log"
-                     filePattern="logs/hippodrome.%d{yyyy-MM-dd}.log"
-                     ignoreExceptions="false">
+        <RollingFile name="LogToFile" fileName="${sys:user.dir}/logs/hippodrome.log"
+                     filePattern="${sys:user.dir}/logs/hippodrome.%d{yyyy-MM-dd}.log"
+                     ignoreExceptions="true">
             <PatternLayout>
-                <Pattern>"%d %-5p %c: %m%n"</Pattern>
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n</Pattern>
             </PatternLayout>
             <Policies>
                 <TimeBasedTriggeringPolicy/>
             </Policies>
             <DefaultRolloverStrategy>
-                <Delete basePath="logs" maxDepth="2">
+                <Delete basePath="${sys:user.dir}/logs" maxDepth="1">
                     <IfFileName glob="hippodrome.*.log" />
                     <IfLastModified age="7d" />
                 </Delete>
@@ -19,8 +19,8 @@
         </RollingFile>
     </Appenders>
     <Loggers>
-        <Root level="ALL">
-            <AppenderRef ref="LogToFile"/>
+        <Root level="ERROR">
+            <AppenderRef ref="RollingFile"/>
         </Root>
     </Loggers>
 </Configuration>

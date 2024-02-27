@@ -21,7 +21,7 @@ class HorseTest {
     public void messageWhenFirstParameter_isNull() {
         try {
             new Horse(null, 4.5, 6.7);
-
+            fail();
         } catch (IllegalArgumentException e) {
             Assertions.assertEquals("Name cannot be null.", e.getMessage());
         }

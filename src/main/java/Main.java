@@ -1,11 +1,29 @@
 
+
 import lombok.extern.slf4j.Slf4j;
 
+import java.io.File;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+
 @Slf4j
 public class Main {
+
+    static {
+
+        String rootPath = System.getProperty("user.dir");
+        File logsDir = new File(rootPath + File.separator + "logs");
+
+        if (!logsDir.exists()) {
+            boolean wasDirectoryMade = logsDir.mkdirs();
+            if (wasDirectoryMade) {
+                System.out.println("Logs directory created successfully.");
+            } else {
+                System.out.println("Failed to create logs directory.");
+            }
+        }
+    }
 
     public static void main(String[] args) throws Exception {
         List<Horse> horses = List.of(
@@ -18,7 +36,7 @@ public class Main {
                 new Horse("Cherry", 3)
         );
         Hippodrome hippodrome = new Hippodrome(horses);
-        log.error("Начало скачек. Количество участников: {}", horses.size());
+        log.info("Начало скачек. Количество участников: {}", horses.size());
 
         for (int i = 0; i < 4; i++) {
             hippodrome.move();
@@ -28,6 +46,7 @@ public class Main {
 
         String winnerName = hippodrome.getWinner().getName();
         System.out.println(winnerName + " wins!");
+        log.info("Окончание скачек. Победитель: {}", winnerName);
     }
 
     private static void watch(Hippodrome hippodrome) throws Exception {
