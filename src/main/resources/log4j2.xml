@@ -3,7 +3,7 @@
     <Appenders>
         <RollingFile name="LogToFile" fileName="${sys:user.dir}/logs/hippodrome.log"
                      filePattern="${sys:user.dir}/logs/hippodrome.%d{yyyy-MM-dd}.log"
-                     ignoreExceptions="true">
+                     ignoreExceptions="false">
             <PatternLayout>
                 <Pattern>%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n</Pattern>
             </PatternLayout>
@@ -11,7 +11,7 @@
                 <TimeBasedTriggeringPolicy/>
             </Policies>
             <DefaultRolloverStrategy>
-                <Delete basePath="${sys:user.dir}/logs" maxDepth="1">
+                <Delete basePath="${sys:user.dir}/logs" maxDepth="2">
                     <IfFileName glob="hippodrome.*.log" />
                     <IfLastModified age="7d" />
                 </Delete>
@@ -19,8 +19,8 @@
         </RollingFile>
     </Appenders>
     <Loggers>
-        <Root level="ERROR">
-            <AppenderRef ref="RollingFile"/>
+        <Root level="ALL">
+            <AppenderRef ref="LogToFile"/>
         </Root>
     </Loggers>
 </Configuration>

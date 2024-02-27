@@ -128,7 +128,7 @@ class HorseTest {
     }
 
     @ParameterizedTest
-    @ValueSource(doubles = {0.1, 0.2, 0.5, 0.9, 1.0, 999.999, 0.0})
+    @ValueSource(doubles = {0.1, 0.25, 0.15, 0.6, 2.0, 979.989, 0.0})
     void move(double random) {
         try (MockedStatic<Horse> mockedStatic = mockStatic(Horse.class)) {
 
