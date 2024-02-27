@@ -51,7 +51,6 @@ class HippodromeTest {
 
     @Test
     public void move() {
-
         List<Horse> horses = new ArrayList<>();
         for (int i = 0; i < 50; i++) {
             horses.add(mock(Horse.class));
@@ -63,15 +62,14 @@ class HippodromeTest {
         for (Horse horse : horses) {
             verify(horse).move();
         }
-
     }
 
     @Test
     public void getWinner() {
-        Horse horse1 = new Horse("qwe1", 1, 2.9999);
-        Horse horse2 = new Horse("qwe2", 1, 2);
+        Horse horse1 = new Horse("qwe1", 1, 2.9889);
+        Horse horse2 = new Horse("qwe2", 1, 2.4);
         Horse horse3 = new Horse("qwe3", 1, 3);
-        Horse horse4 = new Horse("qwe4", 1, 1);
+        Horse horse4 = new Horse("qwe4", 1, 1.9);
 
         Hippodrome hippodrome = new Hippodrome(List.of(horse1, horse2, horse3, horse4));
         Assertions.assertSame(horse3, hippodrome.getWinner());
