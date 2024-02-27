@@ -10,21 +10,6 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 public class Main {
 
-    static {
-
-        String rootPath = System.getProperty("user.dir");
-        File logsDir = new File(rootPath + File.separator + "logs");
-
-        if (!logsDir.exists()) {
-            boolean wasDirectoryMade = logsDir.mkdirs();
-            if (wasDirectoryMade) {
-                System.out.println("Logs directory created successfully.");
-            } else {
-                System.out.println("Failed to create logs directory.");
-            }
-        }
-    }
-
     public static void main(String[] args) throws Exception {
         List<Horse> horses = List.of(
                 new Horse("Bucephalus", 2.4),

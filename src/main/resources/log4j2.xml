@@ -4,9 +4,7 @@
         <RollingFile name="LogToFile" fileName="${sys:user.dir}/logs/hippodrome.log"
                      filePattern="${sys:user.dir}/logs/hippodrome.%d{yyyy-MM-dd}.log"
                      ignoreExceptions="false">
-            <PatternLayout>
-                <Pattern>%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n</Pattern>
-            </PatternLayout>
+            <PatternLayout pattern="%d %-5p %c:  %m%n"/>
             <Policies>
                 <TimeBasedTriggeringPolicy/>
             </Policies>
