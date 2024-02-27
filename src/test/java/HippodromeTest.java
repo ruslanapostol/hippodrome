@@ -40,7 +40,7 @@ class HippodromeTest {
     @Test
     public void getHorses() {
         List<Horse> horses = new ArrayList<>();
-        for (int i = 0; i < 30; i++) {
+        for (int i = 1; i <= 30; i++) {
             horses.add(new Horse("" + i, i, i));
         }
 
